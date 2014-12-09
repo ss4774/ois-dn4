@@ -88,6 +88,30 @@ function preberiEHRodBolnika() {
 	}	
 }
 
+function preberiEHRodBolnikaFirstName() {
+	sessionId = getSessionId();
+
+	var ehrId = $("#preberiEHRid").val();
+
+	if (!ehrId || ehrId.trim().length == 0) {
+		$("#preberiSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevan podatek!");
+	} else {
+		$.ajax({
+			url: baseUrl + "/demographics/ehr/" + ehrId + "/party",
+			type: 'GET',
+			headers: {"Ehr-Session": sessionId},
+	    	success: function (data) {
+				var party = data.party;
+				$("#patient-name").html("<span class='obvestilo label label-success fade-in'>Bolnik '" + party.firstNames + "'.</span>");
+			},
+			error: function(err) {
+				$("#preberiSporocilo").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
+				console.log(JSON.parse(err.responseText).userMessage);
+			}
+		});
+	}	
+}
+
 
 function dodajMeritveVitalnihZnakov() {
 	sessionId = getSessionId();
