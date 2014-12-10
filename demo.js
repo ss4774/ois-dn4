@@ -181,7 +181,7 @@ function preberiEHRodBolnikaFirstName() {
 		    headers: {"Ehr-Session": sessionId},
 		    success: function (res) {
 		    	if (res.length > 0) {
-			        $("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + res[0].pressure + " " + res[0].unit + "</span>");
+			        $("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + res[0].systolic + "/" + res[0].diastolic + " " + res[0].unit + "</span>");
 		    	} else {
 		    		$("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
