@@ -148,7 +148,7 @@ function preberiEHRodBolnikaFirstName() {
 			        temp = res[0].weight;
 			        temp2 = res[0].unit;
 			        $(".patient-weight").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"kreirajEHRzaBolnika()\">Knof</button>");
-			        $(".patient-weight").html("<span class='obvestilo label label-success fade-in'>" + res[0].weight + " " + res[0].unit + "</span>");
+			       // $(".patient-weight").html("<span class='obvestilo label label-success fade-in'>" + res[0].weight + " " + res[0].unit + "</span>");
 		    	} else {
 		    		$(".patient-weight").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
