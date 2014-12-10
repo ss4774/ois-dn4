@@ -125,7 +125,7 @@ function preberiEHRodBolnikaFirstName() {
 			        }*/
 			        //results += "</table>";
 			        //$("#rezultatMeritveVitalnihZnakov").append(results);
-			        $("#body temp").html("<span class='obvestilo label label-success fade-in'>" + res[0].temperature + "</span>");
+			        $("#body temp").html("<span class='obvestilo label label-success fade-in'>" + res[0].temperature + res[0].unit + "</span>");
 		    	} else {
 		    		//$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Ni podatkov!</span>");
 		    		$("#body temp").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
