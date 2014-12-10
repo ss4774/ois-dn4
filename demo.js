@@ -103,7 +103,7 @@ function preberiEHRodBolnikaFirstName() {
 	    	success: function (data) {
 				var party = data.party;
 				$("#patient-name").html("<span class='obvestilo label label-success fade-in'>" + party.firstNames + " " + party.lastNames + ".</span>");
-				$("#patient-age").html("<span class='obvestilo label label-success fade-in'>" + (party.dateOfBirth) + "</span>");
+				$("#patient-age").html("<span class='obvestilo label label-success fade-in'>" + (date().getFullYear() - party.dateOfBirth) + "</span>");
 				//$("#patient-gender").html("<span class='obvestilo label label-success fade-in'>" + party.partyAdditionalInfo.telesnaVisina + "</span>");
 				$("#patient-dob").html("<span class='obvestilo label label-success fade-in'>" + party.dateOfBirth + "</span>");
 			},
@@ -125,10 +125,10 @@ function preberiEHRodBolnikaFirstName() {
 			        }*/
 			        //results += "</table>";
 			        //$("#rezultatMeritveVitalnihZnakov").append(results);
-			        $("#body-temp").html("<span class='obvestilo label label-success fade-in'>" + res[0].temperature + " " + res[0].unit + "</span>");
+			        $("#patient-temp").html("<span class='obvestilo label label-success fade-in'>" + res[0].temperature + " " + res[0].unit + "</span>");
 		    	} else {
 		    		//$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Ni podatkov!</span>");
-		    		$("#body-temp").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
+		    		$("#patient-temp").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
 		    },
 		    error: function() {
@@ -151,7 +151,7 @@ function preberiEHRodBolnikaFirstName() {
 			        $("#patient-weight").html("<span class='obvestilo label label-success fade-in'>" + res[0].weight + " " + res[0].unit + "</span>");
 		    	} else {
 		    		//$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Ni podatkov!</span>");
-		    		$("#value patient-weight").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
+		    		$("#patient-weight").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
 		    },
 		    error: function() {
