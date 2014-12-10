@@ -171,6 +171,7 @@ function preberiEHRodBolnikaFirstName() {
 		    success: function (res) {
 		    	if (res.length > 0) {
 			        $("#patient-height").html("<span class='obvestilo label label-success fade-in'>" + res[0].height + " " + res[0].unit + "</span>");
+			        $("#height-placeholder-value").html("<span class='obvestilo label label-success fade-in'>" + res[0].height + " " + res[0].unit + "</span>");
 			        
 			        $("#patient-bmi").html("<span class='obvestilo label label-success fade-in'>" + temp/(res[0].height/100)^2 + " " + temp2 + "/" + res[0].unit + "2" + "</span>");
 		    	} else {
