@@ -136,6 +136,29 @@ function preberiEHRodBolnikaFirstName() {
 				console.log(JSON.parse(err.responseText).userMessage);
 		    }
 		});
+		$.ajax({
+		    url: baseUrl + "/view/" + ehrId + "/" + "weight",
+		    type: 'GET',
+		    headers: {"Ehr-Session": sessionId},
+		    success: function (res) {
+		    	if (res.length > 0) {
+			    	//var results = "<table class='table table-striped table-hover'><tr><th>Datum in ura</th><th class='text-right'>Telesna temperatura</th></tr>";
+			        /*for (var i in res) {
+			           // results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].temperature + " " 	+ res[i].unit + "</td>";
+			        }*/
+			        //results += "</table>";
+			        //$("#rezultatMeritveVitalnihZnakov").append(results);
+			        $("#value patient-weight").html("<span class='obvestilo label label-success fade-in'>" + res[0].weight + res[0].unit + "</span>");
+		    	} else {
+		    		//$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Ni podatkov!</span>");
+		    		$("#value patient-weight").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
+		    	}
+		    },
+		    error: function() {
+		    	$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
+				console.log(JSON.parse(err.responseText).userMessage);
+		    }
+		});
 	}	
 }
 
