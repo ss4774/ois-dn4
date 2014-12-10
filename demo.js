@@ -201,6 +201,8 @@ function preberiEHRodBolnikaFirstName() {
 		    success: function (res) {
 		    	if (res.length > 0) {
 			        $("#patient-pulse").html("<span class='obvestilo label label-success fade-in'>" + res[0].pulse + "</span>");
+			        
+			        $("#progress-pulse").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].pulse/80 ) + "%; height: 20px;\"></div>");
 		    	} else {
 		    		$("#patient-pulse").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
