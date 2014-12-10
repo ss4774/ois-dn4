@@ -145,17 +145,11 @@ function preberiEHRodBolnikaFirstName() {
 		    headers: {"Ehr-Session": sessionId},
 		    success: function (res) {
 		    	if (res.length > 0) {
-			    	//var results = "<table class='table table-striped table-hover'><tr><th>Datum in ura</th><th class='text-right'>Telesna temperatura</th></tr>";
-			        /*for (var i in res) {
-			           // results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].temperature + " " 	+ res[i].unit + "</td>";
-			        }*/
-			        //results += "</table>";
-			        //$("#rezultatMeritveVitalnihZnakov").append(results);
 			        temp = res[0].weight;
 			        temp2 = res[0].unit;
+			        $(".patient-weight").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"kreirajEHRzaBolnika()\">Dodaj osnovne podatke o bolniku</button>");
 			        $(".patient-weight").html("<span class='obvestilo label label-success fade-in'>" + res[0].weight + " " + res[0].unit + "</span>");
 		    	} else {
-		    		//$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Ni podatkov!</span>");
 		    		$(".patient-weight").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
 		    },
@@ -171,9 +165,9 @@ function preberiEHRodBolnikaFirstName() {
 		    success: function (res) {
 		    	if (res.length > 0) {
 			        $("#patient-height").html("<span class='obvestilo label label-success fade-in'>" + res[0].height + " " + res[0].unit + "</span>");
-			        $("#height-placeholder-value").html("<span class='obvestilo label label-success fade-in'>" + res[0].height + " " + res[0].unit + "</span>");
+			        $(".height-placeholder-value").html("<span class='obvestilo label label-success fade-in'>" + res[0].height + " " + res[0].unit + "</span>");
 			        
-			        $("#patient-bmi").html("<span class='obvestilo label label-success fade-in'>" + temp/(res[0].height/100)^2 + " " + temp2 + "/" + res[0].unit + "2" + "</span>");
+			        $("#patient-bmi").html("<span class='obvestilo label label-success fade-in'>" + ( temp/(res[0].height/100)^2 ) + " " + temp2 + "/" + res[0].unit + "2" + "</span>");
 		    	} else {
 		    		$("#patient-height").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
