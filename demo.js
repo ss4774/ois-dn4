@@ -172,7 +172,7 @@ function preberiEHRodBolnikaFirstName() {
 		    	if (res.length > 0) {
 			        $("#patient-height").html("<span class='obvestilo label label-success fade-in'>" + res[0].height + " " + res[0].unit + "</span>");
 			        
-			        $(".patient-bmi").html("<span class='obvestilo label label-success fade-in'>" + temp/res[0].height^2 + " " + temp2 + "/" + res[0].unit + "2" + "</span>");
+			        $(".patient-bmi").html("<span class='obvestilo label label-success fade-in'>" + temp/(res[0].height/100)^2 + " " + temp2 + "/" + res[0].unit + "2" + "</span>");
 		    	} else {
 		    		$("#patient-height").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
