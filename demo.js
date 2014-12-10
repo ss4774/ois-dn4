@@ -191,6 +191,24 @@ function preberiEHRodBolnikaFirstName() {
 				console.log(JSON.parse(err.responseText).userMessage);
 		    }
 		});
+		$.ajax({
+		    url: baseUrl + "/view/" + ehrId + "/" + "pulse",
+		    type: 'GET',
+		    headers: {"Ehr-Session": sessionId},
+		    success: function (res) {
+		    	if (res.length > 0) {
+			        $("#patient-pulse").html("<span class='obvestilo label label-success fade-in'>" + res[0].pulse + "</span>");
+		    	} else {
+		    		$("#patient-pulse").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
+		    	}
+		    },
+		    error: function() {
+		    	$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
+				console.log(JSON.parse(err.responseText).userMessage);
+		    }
+		});
+		
+		
 	}	
 }
 
