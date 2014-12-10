@@ -103,9 +103,9 @@ function preberiEHRodBolnikaFirstName() {
 	    	success: function (data) {
 				var party = data.party;
 				$("#patient-name").html("<span class='obvestilo label label-success fade-in'>" + party.firstNames + " " + party.lastNames + ".</span>");
-				//$("#patient-age").html("<span class='obvestilo label label-success fade-in'>" + ( ((new Date).getFullYear() - (new Date(party.dateOfBirth)).getFullYear()) ) + "</span>");
+				$("#patient-age").html("<span class='obvestilo label label-success fade-in'>" + ( ((new Date).getFullYear() - (new Date(party.dateOfBirth)).getFullYear()) ) + "</span>");
 				//$("#patient-gender").html("<span class='obvestilo label label-success fade-in'>" + party.partyAdditionalInfo.telesnaVisina + "</span>");
-				$("#patient-dob").html("<span class='obvestilo label label-success fade-in'>" + party.dateOfBirth) + "</span>");
+				$("#patient-dob").html("<span class='obvestilo label label-success fade-in'>" + party.dateOfBirth + "</span>");
 			},
 			error: function(err) {
 				$("#preberiSporocilo").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
