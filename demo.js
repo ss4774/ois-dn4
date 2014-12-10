@@ -103,7 +103,7 @@ function preberiEHRodBolnikaFirstName() {
 	    	success: function (data) {
 				var party = data.party;
 				$("#patient-name").html("<span class='obvestilo label label-success fade-in'>" + party.firstNames + " " + party.lastNames + ".</span>");
-				$("#patient-age").html("<span class='obvestilo label label-success fade-in'>" + (date().getFullYear() - party.dateOfBirth) + "</span>");
+				$("#patient-age").html("<span class='obvestilo label label-success fade-in'>" + (party.dateOfBirth.getFullYear()) + "</span>");
 				//$("#patient-gender").html("<span class='obvestilo label label-success fade-in'>" + party.partyAdditionalInfo.telesnaVisina + "</span>");
 				$("#patient-dob").html("<span class='obvestilo label label-success fade-in'>" + party.dateOfBirth + "</span>");
 			},
@@ -152,6 +152,22 @@ function preberiEHRodBolnikaFirstName() {
 		    	} else {
 		    		//$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Ni podatkov!</span>");
 		    		$("#patient-weight").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
+		    	}
+		    },
+		    error: function() {
+		    	$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
+				console.log(JSON.parse(err.responseText).userMessage);
+		    }
+		});
+		$.ajax({
+		    url: baseUrl + "/view/" + ehrId + "/" + "height",
+		    type: 'GET',
+		    headers: {"Ehr-Session": sessionId},
+		    success: function (res) {
+		    	if (res.length > 0) {
+			        $("#patient-height").html("<span class='obvestilo label label-success fade-in'>" + res[0].height + " " + res[0].unit + "</span>");
+		    	} else {
+		    		$("#patient-height").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
 		    },
 		    error: function() {
