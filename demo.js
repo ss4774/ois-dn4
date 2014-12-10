@@ -176,12 +176,12 @@ function preberiEHRodBolnikaFirstName() {
 		    }
 		});
 		$.ajax({
-		    url: baseUrl + "/view/" + ehrId + "/" + "blood_preasure",
+		    url: baseUrl + "/view/" + ehrId + "/" + "blood_pressure",
 		    type: 'GET',
 		    headers: {"Ehr-Session": sessionId},
 		    success: function (res) {
 		    	if (res.length > 0) {
-			        $("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + res[0].blood_preasure + " " + res[0].unit + "</span>");
+			        $("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + res[0].blood_pressure + " " + res[0].unit + "</span>");
 		    	} else {
 		    		$("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
