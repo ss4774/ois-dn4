@@ -103,7 +103,7 @@ function preberiEHRodBolnikaFirstName() {
 	    	success: function (data) {
 				var party = data.party;
 				$("#patient-name").html("<span class='obvestilo label label-success fade-in'>" + party.firstNames + " " + party.lastNames + ".</span>");
-				$("#patient-age").html("<span class='obvestilo label label-success fade-in'>" + ( ((new Date).getFullYear() - (new Date(party.dateOfBirth)).getFullYear()) ) + "</span>");
+				$(".patient-age").html("<span class='obvestilo label label-success fade-in'>" + ( ((new Date).getFullYear() - (new Date(party.dateOfBirth)).getFullYear()) ) + "</span>");
 				//$("#patient-gender").html("<span class='obvestilo label label-success fade-in'>" + party.partyAdditionalInfo.telesnaVisina + "</span>");
 				$("#patient-dob").html("<span class='obvestilo label label-success fade-in'>" + party.dateOfBirth + "</span>");
 			},
@@ -168,6 +168,22 @@ function preberiEHRodBolnikaFirstName() {
 			        $("#patient-height").html("<span class='obvestilo label label-success fade-in'>" + res[0].height + " " + res[0].unit + "</span>");
 		    	} else {
 		    		$("#patient-height").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
+		    	}
+		    },
+		    error: function() {
+		    	$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
+				console.log(JSON.parse(err.responseText).userMessage);
+		    }
+		});
+		$.ajax({
+		    url: baseUrl + "/view/" + ehrId + "/" + "blood_preasure",
+		    type: 'GET',
+		    headers: {"Ehr-Session": sessionId},
+		    success: function (res) {
+		    	if (res.length > 0) {
+			        $("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + res[0].blood_preasure + " " + res[0].unit + "</span>");
+		    	} else {
+		    		$("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
 		    },
 		    error: function() {
