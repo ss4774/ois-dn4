@@ -125,10 +125,10 @@ function preberiEHRodBolnikaFirstName() {
 			        }
 			        //results += "</table>";
 			        //$("#rezultatMeritveVitalnihZnakov").append(results);
-			        $("#patient-gender").html("<span class='obvestilo label label-success fade-in'>" + res[0].body_temperature + "</span>");
+			        $("#body temp").html("<span class='obvestilo label label-success fade-in'>" + res[0].body_temperature + "</span>");
 		    	} else {
 		    		//$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Ni podatkov!</span>");
-		    		$("#patient-gender").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
+		    		$("#body temp").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
 		    },
 		    error: function() {
