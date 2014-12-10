@@ -183,8 +183,8 @@ function preberiEHRodBolnikaFirstName() {
 		    	if (res.length > 0) {
 			        $("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + res[0].systolic + "/" + res[0].diastolic + " " + res[0].unit + "</span>");
 			        
-			        $("#progress-bp-systolic").html("<div class=\"progress-bar\" style=\"width: " + 40 + "%;\"></div>");
-			        $("#progress-bp-diastolic").html("<div class=\"progress-bar\" style=\"width: " + 70 + "%;\"></div>");
+			        $("#progress-bp-systolic").html("<div class=\"progress-bar\" style=\"width: " + 40 + "%; height: 20px;\"></div>");
+			        $("#progress-bp-diastolic").html("<div class=\"progress-bar\" style=\"width: " + 70 + "%; height: 20px;\"></div>");
 		    	} else {
 		    		$("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
