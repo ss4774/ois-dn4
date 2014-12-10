@@ -120,12 +120,12 @@ function preberiEHRodBolnikaFirstName() {
 		    success: function (res) {
 		    	if (res.length > 0) {
 			    	//var results = "<table class='table table-striped table-hover'><tr><th>Datum in ura</th><th class='text-right'>Telesna temperatura</th></tr>";
-			        for (var i in res) {
+			        /*for (var i in res) {
 			           // results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].temperature + " " 	+ res[i].unit + "</td>";
-			        }
+			        }*/
 			        //results += "</table>";
 			        //$("#rezultatMeritveVitalnihZnakov").append(results);
-			        $("#body temp").html("<span class='obvestilo label label-success fade-in'>" + res[0].body_temperature + "</span>");
+			        $("#body temp").html("<span class='obvestilo label label-success fade-in'>" + res[0].temperature + "</span>");
 		    	} else {
 		    		//$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Ni podatkov!</span>");
 		    		$("#body temp").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
