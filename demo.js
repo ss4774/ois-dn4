@@ -92,6 +92,9 @@ function preberiEHRodBolnikaFirstName() {
 	sessionId = getSessionId();
 
 	var ehrId = $("#preberiEHRid").val();
+	
+	var temp;
+	var temp2;
 
 	if (!ehrId || ehrId.trim().length == 0) {
 		$("#preberiSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevan podatek!");
@@ -148,6 +151,8 @@ function preberiEHRodBolnikaFirstName() {
 			        }*/
 			        //results += "</table>";
 			        //$("#rezultatMeritveVitalnihZnakov").append(results);
+			        temp = res[0].weight;
+			        temp2 = res[0].unit;
 			        $(".patient-weight").html("<span class='obvestilo label label-success fade-in'>" + res[0].weight + " " + res[0].unit + "</span>");
 		    	} else {
 		    		//$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Ni podatkov!</span>");
@@ -166,6 +171,8 @@ function preberiEHRodBolnikaFirstName() {
 		    success: function (res) {
 		    	if (res.length > 0) {
 			        $("#patient-height").html("<span class='obvestilo label label-success fade-in'>" + res[0].height + " " + res[0].unit + "</span>");
+			        
+			        $(".patient-bmi").html("<span class='obvestilo label label-success fade-in'>" + temp/res[0].height^2 + " " + temp2 + "/" + res[0].unit + "2" + "</span>");
 		    	} else {
 		    		$("#patient-height").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
