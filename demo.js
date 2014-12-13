@@ -147,7 +147,7 @@ function preberiEHRodBolnikaFirstName() {
 		    	if (res.length > 0) {
 			        temp = res[0].weight;
 			        temp2 = res[0].unit;
-			        $(".patient-weight").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"kreirajEHRzaBolnika()\">" + res[0].weight + "</button>");
+			        $(".patient-weight").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilWeight()\">" + res[0].weight + "</button>");
 			       // $(".patient-weight").html("<span class='obvestilo label label-success fade-in'>" + res[0].weight + " " + res[0].unit + "</span>");
 		    	} else {
 		    		$(".patient-weight").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
@@ -216,6 +216,37 @@ function preberiEHRodBolnikaFirstName() {
 		});
 		
 		
+	}	
+}
+
+function master_deatilWeight() {
+	sessionId = getSessionId();
+
+	var ehrId = $("#preberiEHRid").val();
+
+	if (!ehrId || ehrId.trim().length == 0) {
+		$("#preberiSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevan podatek!");
+	} else {
+		$.ajax({
+			url: baseUrl + "/view/" + ehrId + "/" + "weight",
+			type: 'GET',
+			headers: {"Ehr-Session": sessionId},
+	    	success: function (res) {
+				//var results = "<table class='table table-striped table-hover'><tr><th>Datum in ura</th><th class='text-right'>Telesna temperatura</th></tr>";
+		        for (var i in res) {
+		           // results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].temperature + " " 	+ res[i].unit + "</td>";
+		           $("#detail").html("<span class='obvestilo label label-success fade-in'>" + res[i].weight + " " + res[i].unit + "</span>");
+		        }
+		        //results += "</table>";
+		        //$("#rezultatMeritveVitalnihZnakov").append(results);
+				
+				//console.log("Bolnik '" + party.firstNames + " " + party.lastNames + "', ki se je rodil '" + party.dateOfBirth + "'.");
+			},
+			error: function(err) {
+				$("#preberiSporocilo").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
+				console.log(JSON.parse(err.responseText).userMessage);
+			}
+		});
 	}	
 }
 
