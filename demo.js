@@ -95,6 +95,7 @@ function preberiEHRodBolnikaFirstName() {
 	
 	var temp;
 	var temp2;
+	var color = "blue";
 
 	if (!ehrId || ehrId.trim().length == 0) {
 		$("#preberiSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevan podatek!");
@@ -147,7 +148,7 @@ function preberiEHRodBolnikaFirstName() {
 		    	if (res.length > 0) {
 			        temp = res[0].weight;
 			        temp2 = res[0].unit;
-			        $(".patient-weight").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilWeight()\">" + res[0].weight + "</button>");
+			        $(".patient-weight").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilWeight()\">" + res[0].weight + " " + res[0].unit + "</button>");
 			       // $(".patient-weight").html("<span class='obvestilo label label-success fade-in'>" + res[0].weight + " " + res[0].unit + "</span>");
 		    	} else {
 		    		$(".patient-weight").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
@@ -207,7 +208,10 @@ function preberiEHRodBolnikaFirstName() {
 			        //$("#patient-pulse").html("<span class='obvestilo label label-success fade-in'>" + res[0].pulse + "</span>");
 			        $("#patient-pulse").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilPulse()\">" + res[0].weight + "</button>");
 			        
-			        $("#progress-pulse").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].pulse/80 ) + "%; height: 20px;\"></div>");
+			        if(Math.abs( 50*res[0].pulse/80 ) < 20){
+			        	color = "green";
+			        }
+			        $("#progress-pulse").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].pulse/80 ) + "%; height: 20px; color: \"" + color + "\"\"></div>");
 		    	} else {
 		    		$("#patient-pulse").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
@@ -265,7 +269,7 @@ function master_deatilHeight() {
 			type: 'GET',
 			headers: {"Ehr-Session": sessionId},
 	    	success: function (res) {
-				var results = "<table class='table table-striped table-hover'><tr><th>Date</th><th class='text-right'>Weight</th></tr>";
+				var results = "<table class='table table-striped table-hover'><tr><th>Date</th><th class='text-right'>Height</th></tr>";
 		        for (var i in res) {
 		            results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].height + " " 	+ res[i].unit + "</td>";
 		           
@@ -294,7 +298,7 @@ function master_deatilBP() {
 			type: 'GET',
 			headers: {"Ehr-Session": sessionId},
 	    	success: function (res) {
-				var results = "<table class='table table-striped table-hover'><tr><th>Date</th><th class='text-right'>Weight</th></tr>";
+				var results = "<table class='table table-striped table-hover'><tr><th>Date</th><th class='text-right'>Blood pressure</th></tr>";
 		        for (var i in res) {
 		            results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].systolic + "/" + res[0].diastolic + " " 	+ res[i].unit + "</td>";
 		        }
@@ -322,7 +326,7 @@ function master_deatilPulse() {
 			type: 'GET',
 			headers: {"Ehr-Session": sessionId},
 	    	success: function (res) {
-				var results = "<table class='table table-striped table-hover'><tr><th>Date</th><th class='text-right'>Weight</th></tr>";
+				var results = "<table class='table table-striped table-hover'><tr><th>Date</th><th class='text-right'>Pulse</th></tr>";
 		        for (var i in res) {
 		            results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].pulse + " " 	+ res[i].unit + "</td>";
 		        }
