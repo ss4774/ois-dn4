@@ -215,7 +215,7 @@ function preberiEHRodBolnikaFirstName() {
 			        }else if(Math.abs( res[0].pulse - 80 ) < 60){
 			        	color = "red";
 			        }
-			        $("#progress-pulse").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].pulse/80 ) + "%; height: 20px; color: " + color + ";\"></div>");
+			        $("#progress-pulse").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].pulse/80 ) + "%; height: 20px; background-color: " + color + ";\"></div>");
 		    	} else {
 		    		$("#patient-pulse").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
