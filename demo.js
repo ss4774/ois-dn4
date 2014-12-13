@@ -188,8 +188,23 @@ function preberiEHRodBolnikaFirstName() {
 			        //$("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + res[0].systolic + "/" + res[0].diastolic + " " + res[0].unit + "</span>");
 			        $("#patient-bp").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilBP()\">" + res[0].diastolic + " " + res[0].unit + "</button>");
 			        
-			        $("#progress-bp-systolic").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].systolic/120 ) + "%; height: 20px;\"></div>");
-			        $("#progress-bp-diastolic").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].diastolic/80 ) + "%; height: 20px;\"></div>");
+			        if(Math.abs( res[0].systolic - 120 ) < 20){
+			        	color = "green";
+			        }else if(Math.abs( res[0].systolic - 120 ) < 40){
+			        	color = "yellow";
+			        }else if(Math.abs( res[0].systolic - 120 ) < 60){
+			        	color = "red";
+			        }
+			        $("#progress-bp-systolic").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].systolic/120 ) + "%; height: 20px; background-color: " + color + ";\"></div>");
+			        
+			        if(Math.abs( res[0].diastolic - 80 ) < 20){
+			        	color = "green";
+			        }else if(Math.abs( res[0].diastolic - 80 ) < 40){
+			        	color = "yellow";
+			        }else if(Math.abs( res[0].diastolic - 80 ) < 60){
+			        	color = "red";
+			        }
+			        $("#progress-bp-diastolic").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].diastolic/80 ) + "%; height: 20px; background-color: " + color + ";\"></div>");
 		    	} else {
 		    		$("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
