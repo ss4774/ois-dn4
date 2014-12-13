@@ -129,7 +129,8 @@ function preberiEHRodBolnikaFirstName() {
 			        }*/
 			        //results += "</table>";
 			        //$("#rezultatMeritveVitalnihZnakov").append(results);
-			        $("#patient-temp").html("<span class='C3'>" + res[0].temperature + " " + res[0].unit + "</span>");
+			        //$("#patient-temp").html("<span class='C3'>" + res[0].temperature + " " + res[0].unit + "</span>");
+			        $(".patient-weight").html("<button type=\"button\" class=\"C3\" onclick=\"master_deatilWeight()\">" + res[0].temperature + " " + res[0].unit + "</button>");
 		    	} else {
 		    		//$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Ni podatkov!</span>");
 		    		$("#patient-temp").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
@@ -348,6 +349,34 @@ function master_deatilPulse() {
 				var results = "<table class='table table-striped table-hover'><tr><th>Date</th><th class='text-right'>Pulse</th></tr>";
 		        for (var i in res) {
 		            results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].pulse + " " 	+ res[i].unit + "</td>";
+		        }
+		        results += "</table>";
+		        $("#detail").html(results);
+			//	$("#detail").html("<span class='obvestilo label label-success fade-in'>" + res[i].weight + " " + res[i].unit + "</span>");
+			},
+			error: function(err) {
+				$("#detail").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
+				console.log(JSON.parse(err.responseText).userMessage);
+			}
+		});
+	}	
+}
+function master_deatilTemperature() {
+	sessionId = getSessionId();
+
+	var ehrId = $("#preberiEHRid").val();
+
+	if (!ehrId || ehrId.trim().length == 0) {
+		$("#preberiSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevan podatek!");
+	} else {
+		$.ajax({
+			url: baseUrl + "/view/" + ehrId + "/" + "temperature",
+			type: 'GET',
+			headers: {"Ehr-Session": sessionId},
+	    	success: function (res) {
+				var results = "<table class='table table-striped table-hover'><tr><th>Date</th><th class='text-right'>Temperature</th></tr>";
+		        for (var i in res) {
+		            results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].temperature + " " 	+ res[i].unit + "</td>";
 		        }
 		        results += "</table>";
 		        $("#detail").html(results);
