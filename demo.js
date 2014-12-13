@@ -242,7 +242,7 @@ function preberiEHRodBolnikaEHR() {
 		    }
 		});
 		$.ajax({
-		    url: baseUrl + "/view/" + ehrId + "/" + "problems",
+		    url: baseUrl + "/view/" + ehrId + "/" + "problem",
 		    type: 'GET',
 		    headers: {"Ehr-Session": sessionId},
 		    success: function (res) {
