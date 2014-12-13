@@ -208,14 +208,14 @@ function preberiEHRodBolnikaFirstName() {
 			        //$("#patient-pulse").html("<span class='obvestilo label label-success fade-in'>" + res[0].pulse + "</span>");
 			        $("#patient-pulse").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilPulse()\">" + res[0].pulse + "</button>");
 			        
-			        if(Math.abs( 50*res[0].pulse/80 ) < 20){
+			        if(Math.abs( res[0].pulse - 80 ) < 20){
 			        	color = "green";
-			        }else if(Math.abs( 50*res[0].pulse/80 ) < 40){
+			        }else if(Math.abs( res[0].pulse - 80 ) < 40){
 			        	color = "yellow";
-			        }else if(Math.abs( 50*res[0].pulse/80 ) < 60){
+			        }else if(Math.abs( res[0].pulse - 80 ) < 60){
 			        	color = "red";
 			        }
-			        $("#progress-pulse").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].pulse/80 ) + "%; height: 20px; color: \"" + color + "\"\"></div>");
+			        $("#progress-pulse").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].pulse/80 ) + "%; height: 20px; color: " + color + ";\"></div>");
 		    	} else {
 		    		$("#patient-pulse").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
