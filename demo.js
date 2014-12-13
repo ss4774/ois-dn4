@@ -249,7 +249,7 @@ function preberiEHRodBolnikaEHR() {
 		    	if (res.length > 0) {
 		    		var results = "<table class='table table-striped table-hover'>";
 			        for (var i in res) {
-			            results += "<tr><td><li></li></td><td class='text-right'>" + res[i].problem + "</td></tr>";
+			            results += "<tr><li><td class='text-right'>" + res[i].problem + "</td></li></tr>";
 			        }
 			        results += "</table>";
 			        $("#patient-problems").html(results);
