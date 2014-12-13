@@ -166,7 +166,7 @@ function preberiEHRodBolnikaFirstName() {
 		    success: function (res) {
 		    	if (res.length > 0) {
 			        //$("#patient-height").html("<span class='obvestilo label label-success fade-in'>" + res[0].height + " " + res[0].unit + "</span>");
-			        $("#patient-height").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilHeight()\">" + res[0].height + " " + res[0].unit + "</button>");
+			        $("#patient-height").html("<button type=\"button\" class=\"C2\" onclick=\"master_deatilHeight()\">" + res[0].height + " " + res[0].unit + "</button>");
 			        $(".height-placeholder-value").html("<span class='obvestilo label label-success fade-in'>" + res[0].height + " " + res[0].unit + "</span>");
 			        
 			        $("#patient-bmi").html("<span class='obvestilo label label-success fade-in'>" + ( temp/(res[0].height/100)^2 ) + " " + temp2 + "/" + res[0].unit + "2" + "</span>");
@@ -186,7 +186,7 @@ function preberiEHRodBolnikaFirstName() {
 		    success: function (res) {
 		    	if (res.length > 0) {
 			        //$("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + res[0].systolic + "/" + res[0].diastolic + " " + res[0].unit + "</span>");
-			        $("#patient-bp").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilBP()\">" + res[0].diastolic + " " + res[0].unit + "</button>");
+			        $("#patient-bp").html("<button type=\"button\" class=\"C3\" onclick=\"master_deatilBP()\">" + res[0].diastolic + " " + res[0].unit + "</button>");
 			        
 			        if(Math.abs( res[0].systolic - 120 ) < 20){
 			        	color = "green";
@@ -221,7 +221,7 @@ function preberiEHRodBolnikaFirstName() {
 		    success: function (res) {
 		    	if (res.length > 0) {
 			        //$("#patient-pulse").html("<span class='obvestilo label label-success fade-in'>" + res[0].pulse + "</span>");
-			        $("#patient-pulse").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilPulse()\">" + res[0].pulse + "</button>");
+			        $("#patient-pulse").html("<button type=\"button\" class=\"C3\" onclick=\"master_deatilPulse()\">" + res[0].pulse + "</button>");
 			        
 			        if(Math.abs( res[0].pulse - 80 ) < 20){
 			        	color = "green";
