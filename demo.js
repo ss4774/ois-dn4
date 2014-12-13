@@ -164,7 +164,8 @@ function preberiEHRodBolnikaFirstName() {
 		    headers: {"Ehr-Session": sessionId},
 		    success: function (res) {
 		    	if (res.length > 0) {
-			        $("#patient-height").html("<span class='obvestilo label label-success fade-in'>" + res[0].height + " " + res[0].unit + "</span>");
+			        //$("#patient-height").html("<span class='obvestilo label label-success fade-in'>" + res[0].height + " " + res[0].unit + "</span>");
+			        $("#patient-height").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilHeight()\">" + res[0].height + " " + res[0].unit + "</button>");
 			        $(".height-placeholder-value").html("<span class='obvestilo label label-success fade-in'>" + res[0].height + " " + res[0].unit + "</span>");
 			        
 			        $("#patient-bmi").html("<span class='obvestilo label label-success fade-in'>" + ( temp/(res[0].height/100)^2 ) + " " + temp2 + "/" + res[0].unit + "2" + "</span>");
@@ -183,7 +184,8 @@ function preberiEHRodBolnikaFirstName() {
 		    headers: {"Ehr-Session": sessionId},
 		    success: function (res) {
 		    	if (res.length > 0) {
-			        $("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + res[0].systolic + "/" + res[0].diastolic + " " + res[0].unit + "</span>");
+			        //$("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + res[0].systolic + "/" + res[0].diastolic + " " + res[0].unit + "</span>");
+			        $("#patient-bp").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilWeight()\">" + res[0].diastolic + " " + res[0].unit + "</button>");
 			        
 			        $("#progress-bp-systolic").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].systolic/120 ) + "%; height: 20px;\"></div>");
 			        $("#progress-bp-diastolic").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].diastolic/80 ) + "%; height: 20px;\"></div>");
@@ -202,7 +204,8 @@ function preberiEHRodBolnikaFirstName() {
 		    headers: {"Ehr-Session": sessionId},
 		    success: function (res) {
 		    	if (res.length > 0) {
-			        $("#patient-pulse").html("<span class='obvestilo label label-success fade-in'>" + res[0].pulse + "</span>");
+			        //$("#patient-pulse").html("<span class='obvestilo label label-success fade-in'>" + res[0].pulse + "</span>");
+			        $("#patient-pulse").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilWeight()\">" + res[0].weight + "</button>");
 			        
 			        $("#progress-pulse").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].pulse/80 ) + "%; height: 20px;\"></div>");
 		    	} else {
@@ -219,6 +222,7 @@ function preberiEHRodBolnikaFirstName() {
 	}	
 }
 
+////////////////////////////////////////
 function master_deatilWeight() {
 	sessionId = getSessionId();
 
@@ -232,7 +236,7 @@ function master_deatilWeight() {
 			type: 'GET',
 			headers: {"Ehr-Session": sessionId},
 	    	success: function (res) {
-				var results = "<table class='table table-striped table-hover'><tr><th>Datum in ura</th><th class='text-right'>Weight</th></tr>";
+				var results = "<table class='table table-striped table-hover'><tr><th>Date</th><th class='text-right'>Weight</th></tr>";
 		        for (var i in res) {
 		            results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].weight + " " 	+ res[i].unit + "</td>";
 		           
@@ -248,7 +252,92 @@ function master_deatilWeight() {
 		});
 	}	
 }
+function master_deatilHeight() {
+	sessionId = getSessionId();
 
+	var ehrId = $("#preberiEHRid").val();
+
+	if (!ehrId || ehrId.trim().length == 0) {
+		$("#preberiSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevan podatek!");
+	} else {
+		$.ajax({
+			url: baseUrl + "/view/" + ehrId + "/" + "height",
+			type: 'GET',
+			headers: {"Ehr-Session": sessionId},
+	    	success: function (res) {
+				var results = "<table class='table table-striped table-hover'><tr><th>Date</th><th class='text-right'>Weight</th></tr>";
+		        for (var i in res) {
+		            results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].height + " " 	+ res[i].unit + "</td>";
+		           
+		        }
+		        results += "</table>";
+		        $("#detail").append(results);
+			//	$("#detail").html("<span class='obvestilo label label-success fade-in'>" + res[i].weight + " " + res[i].unit + "</span>");
+			},
+			error: function(err) {
+				$("#detail").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
+				console.log(JSON.parse(err.responseText).userMessage);
+			}
+		});
+	}	
+}
+function master_deatilBP() {
+	sessionId = getSessionId();
+
+	var ehrId = $("#preberiEHRid").val();
+
+	if (!ehrId || ehrId.trim().length == 0) {
+		$("#preberiSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevan podatek!");
+	} else {
+		$.ajax({
+			url: baseUrl + "/view/" + ehrId + "/" + "blood_pressure",
+			type: 'GET',
+			headers: {"Ehr-Session": sessionId},
+	    	success: function (res) {
+				var results = "<table class='table table-striped table-hover'><tr><th>Date</th><th class='text-right'>Weight</th></tr>";
+		        for (var i in res) {
+		            results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].systolic + "/" + res[0].diastolic + " " 	+ res[i].unit + "</td>";
+		        }
+		        results += "</table>";
+		        $("#detail").append(results);
+			//	$("#detail").html("<span class='obvestilo label label-success fade-in'>" + res[i].weight + " " + res[i].unit + "</span>");
+			},
+			error: function(err) {
+				$("#detail").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
+				console.log(JSON.parse(err.responseText).userMessage);
+			}
+		});
+	}	
+}
+function master_deatilPulse() {
+	sessionId = getSessionId();
+
+	var ehrId = $("#preberiEHRid").val();
+
+	if (!ehrId || ehrId.trim().length == 0) {
+		$("#preberiSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevan podatek!");
+	} else {
+		$.ajax({
+			url: baseUrl + "/view/" + ehrId + "/" + "pulse",
+			type: 'GET',
+			headers: {"Ehr-Session": sessionId},
+	    	success: function (res) {
+				var results = "<table class='table table-striped table-hover'><tr><th>Date</th><th class='text-right'>Weight</th></tr>";
+		        for (var i in res) {
+		            results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].pulse + " " 	+ res[i].unit + "</td>";
+		        }
+		        results += "</table>";
+		        $("#detail").append(results);
+			//	$("#detail").html("<span class='obvestilo label label-success fade-in'>" + res[i].weight + " " + res[i].unit + "</span>");
+			},
+			error: function(err) {
+				$("#detail").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
+				console.log(JSON.parse(err.responseText).userMessage);
+			}
+		});
+	}	
+}
+//////////////////////////////////////////////
 
 function dodajMeritveVitalnihZnakov() {
 	sessionId = getSessionId();
