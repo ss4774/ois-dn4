@@ -130,7 +130,7 @@ function preberiEHRodBolnikaFirstName() {
 			        //results += "</table>";
 			        //$("#rezultatMeritveVitalnihZnakov").append(results);
 			        //$("#patient-temp").html("<span class='C3'>" + res[0].temperature + " " + res[0].unit + "</span>");
-			        $(".patient-weight").html("<button type=\"button\" class=\"C3\" onclick=\"master_deatilWeight()\">" + res[0].temperature + " " + res[0].unit + "</button>");
+			        $("#patient-temp").html("<button type=\"button\" class=\"C3\" onclick=\"master_deatilTemperature()\">" + res[0].temperature + " " + res[0].unit + "</button>");
 		    	} else {
 		    		//$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Ni podatkov!</span>");
 		    		$("#patient-temp").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
@@ -187,7 +187,7 @@ function preberiEHRodBolnikaFirstName() {
 		    success: function (res) {
 		    	if (res.length > 0) {
 			        //$("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + res[0].systolic + "/" + res[0].diastolic + " " + res[0].unit + "</span>");
-			        $("#patient-bp").html("<button type=\"button\" class=\"C3\" onclick=\"master_deatilBP()\">" + res[0].diastolic + " " + res[0].unit + "</button>");
+			        $("#patient-bp").html("<button type=\"button\" class=\"C3\" onclick=\"master_deatilBP()\">" + res[0].systolic + "/" + res[0].diastolic + " " + res[0].unit + "</button>");
 			        
 			        if(Math.abs( res[0].systolic - 120 ) < 20){
 			        	color = "green";
