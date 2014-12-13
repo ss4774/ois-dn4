@@ -185,7 +185,7 @@ function preberiEHRodBolnikaFirstName() {
 		    success: function (res) {
 		    	if (res.length > 0) {
 			        //$("#patient-bp").html("<span class='obvestilo label label-success fade-in'>" + res[0].systolic + "/" + res[0].diastolic + " " + res[0].unit + "</span>");
-			        $("#patient-bp").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilWeight()\">" + res[0].diastolic + " " + res[0].unit + "</button>");
+			        $("#patient-bp").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilBP()\">" + res[0].diastolic + " " + res[0].unit + "</button>");
 			        
 			        $("#progress-bp-systolic").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].systolic/120 ) + "%; height: 20px;\"></div>");
 			        $("#progress-bp-diastolic").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].diastolic/80 ) + "%; height: 20px;\"></div>");
@@ -205,7 +205,7 @@ function preberiEHRodBolnikaFirstName() {
 		    success: function (res) {
 		    	if (res.length > 0) {
 			        //$("#patient-pulse").html("<span class='obvestilo label label-success fade-in'>" + res[0].pulse + "</span>");
-			        $("#patient-pulse").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilWeight()\">" + res[0].weight + "</button>");
+			        $("#patient-pulse").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilPulse()\">" + res[0].weight + "</button>");
 			        
 			        $("#progress-pulse").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].pulse/80 ) + "%; height: 20px;\"></div>");
 		    	} else {
@@ -242,7 +242,7 @@ function master_deatilWeight() {
 		           
 		        }
 		        results += "</table>";
-		        $("#detail").append(results);
+		        $("#detail").html(results);
 			//	$("#detail").html("<span class='obvestilo label label-success fade-in'>" + res[i].weight + " " + res[i].unit + "</span>");
 			},
 			error: function(err) {
@@ -271,7 +271,7 @@ function master_deatilHeight() {
 		           
 		        }
 		        results += "</table>";
-		        $("#detail").append(results);
+		        $("#detail").html(results);
 			//	$("#detail").html("<span class='obvestilo label label-success fade-in'>" + res[i].weight + " " + res[i].unit + "</span>");
 			},
 			error: function(err) {
@@ -299,7 +299,7 @@ function master_deatilBP() {
 		            results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].systolic + "/" + res[0].diastolic + " " 	+ res[i].unit + "</td>";
 		        }
 		        results += "</table>";
-		        $("#detail").append(results);
+		        $("#detail").html(results);
 			//	$("#detail").html("<span class='obvestilo label label-success fade-in'>" + res[i].weight + " " + res[i].unit + "</span>");
 			},
 			error: function(err) {
@@ -327,7 +327,7 @@ function master_deatilPulse() {
 		            results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].pulse + " " 	+ res[i].unit + "</td>";
 		        }
 		        results += "</table>";
-		        $("#detail").append(results);
+		        $("#detail").html(results);
 			//	$("#detail").html("<span class='obvestilo label label-success fade-in'>" + res[i].weight + " " + res[i].unit + "</span>");
 			},
 			error: function(err) {
