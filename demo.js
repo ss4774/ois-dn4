@@ -232,7 +232,7 @@ function master_deatilWeight() {
 			type: 'GET',
 			headers: {"Ehr-Session": sessionId},
 	    	success: function (res) {
-				//var results = "<table class='table table-striped table-hover'><tr><th>Datum in ura</th><th class='text-right'>Telesna temperatura</th></tr>";
+				var results = "<table class='table table-striped table-hover'><tr><th>Datum in ura</th><th class='text-right'>Weight</th></tr>";
 		        for (var i in res) {
 		            results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].weight + " " 	+ res[i].unit + "</td>";
 		           
