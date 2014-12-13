@@ -210,6 +210,10 @@ function preberiEHRodBolnikaFirstName() {
 			        
 			        if(Math.abs( 50*res[0].pulse/80 ) < 20){
 			        	color = "green";
+			        }else if(Math.abs( 50*res[0].pulse/80 ) < 40){
+			        	color = "yellow";
+			        }else if(Math.abs( 50*res[0].pulse/80 ) < 60){
+			        	color = "red";
 			        }
 			        $("#progress-pulse").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].pulse/80 ) + "%; height: 20px; color: \"" + color + "\"\"></div>");
 		    	} else {
