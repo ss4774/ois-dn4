@@ -206,7 +206,7 @@ function preberiEHRodBolnikaFirstName() {
 		    success: function (res) {
 		    	if (res.length > 0) {
 			        //$("#patient-pulse").html("<span class='obvestilo label label-success fade-in'>" + res[0].pulse + "</span>");
-			        $("#patient-pulse").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilPulse()\">" + res[0].weight + "</button>");
+			        $("#patient-pulse").html("<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"master_deatilPulse()\">" + res[0].pulse + "</button>");
 			        
 			        if(Math.abs( 50*res[0].pulse/80 ) < 20){
 			        	color = "green";
