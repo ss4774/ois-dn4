@@ -129,7 +129,7 @@ function preberiEHRodBolnikaFirstName() {
 			        }*/
 			        //results += "</table>";
 			        //$("#rezultatMeritveVitalnihZnakov").append(results);
-			        $("#patient-temp").html("<span class='obvestilo label label-success fade-in'>" + res[0].temperature + " " + res[0].unit + "</span>");
+			        $("#patient-temp").html("<span class='C3'>" + res[0].temperature + " " + res[0].unit + "</span>");
 		    	} else {
 		    		//$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Ni podatkov!</span>");
 		    		$("#patient-temp").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
@@ -169,7 +169,7 @@ function preberiEHRodBolnikaFirstName() {
 			        $("#patient-height").html("<button type=\"button\" class=\"C2\" onclick=\"master_deatilHeight()\">" + res[0].height + " " + res[0].unit + "</button>");
 			        $(".height-placeholder-value").html("<span class='obvestilo label label-success fade-in'>" + res[0].height + " " + res[0].unit + "</span>");
 			        
-			        $("#patient-bmi").html("<span class='obvestilo label label-success fade-in'>" + ( temp/(res[0].height/100)^2 ) + " " + temp2 + "/" + res[0].unit + "2" + "</span>");
+			        $("#patient-bmi").html("<span class='C3'>" + ( temp/(res[0].height/100)^2 ) + " " + temp2 + "/" + res[0].unit + "2" + "</span>");
 		    	} else {
 		    		$("#patient-height").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
 		    	}
