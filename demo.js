@@ -88,7 +88,7 @@ function preberiEHRodBolnika() {
 	}	
 }
 
-function preberiEHRodBolnikaFirstName() {
+function preberiEHRodBolnikaEHR() {
 	sessionId = getSessionId();
 
 	var ehrId = $("#preberiEHRid").val();
