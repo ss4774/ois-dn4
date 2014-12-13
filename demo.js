@@ -241,6 +241,27 @@ function preberiEHRodBolnikaEHR() {
 				console.log(JSON.parse(err.responseText).userMessage);
 		    }
 		});
+		$.ajax({
+		    url: baseUrl + "/view/" + ehrId + "/" + "problems",
+		    type: 'GET',
+		    headers: {"Ehr-Session": sessionId},
+		    success: function (res) {
+		    	if (res.length > 0) {
+		    		var results = "<table class='table table-striped table-hover'><tr><th>Date</th><th class='text-right'>Weight</th></tr>";
+			        for (var i in res) {
+			            results += "<tr><td class='text-right'>" + res[i].problems + "</td>";
+			        }
+			        results += "</table>";
+			        $("#patient-problems").html(results);
+		    	} else {
+		    		$("#patient-problems").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
+		    	}
+		    },
+		    error: function() {
+		    	$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
+				console.log(JSON.parse(err.responseText).userMessage);
+		    }
+		});
 		
 		
 	}	
