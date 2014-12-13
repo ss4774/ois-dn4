@@ -247,9 +247,9 @@ function preberiEHRodBolnikaEHR() {
 		    headers: {"Ehr-Session": sessionId},
 		    success: function (res) {
 		    	if (res.length > 0) {
-		    		var results = "<table class='table table-striped table-hover'><tr><th>Date</th><th class='text-right'>Weight</th></tr>";
+		    		var results = "<table class='table table-striped table-hover'>";
 			        for (var i in res) {
-			            results += "<tr><td class='text-right'>" + res[i].problem + "</td>";
+			            results += "<tr><td><li></li>as</td><td class='text-right'>" + res[i].problem + "</td>";
 			        }
 			        results += "</table>";
 			        $("#patient-problems").html(results);
