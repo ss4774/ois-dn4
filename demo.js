@@ -91,7 +91,7 @@ function preberiEHRodBolnika() {
 function preberiEHRodBolnikaEHR() {
 	sessionId = getSessionId();
 
-	var ehrId = $("#preberiEHRid").val();
+	var ehrId = $("#preberiEHRidEHR").val();
 	
 	var temp;
 	var temp2;
