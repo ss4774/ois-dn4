@@ -809,6 +809,7 @@ span.abnormal i{
 }
 
 .patient-pic{
+    background-size: 80px 60px;
     background-repeat: no-repeat;
 }
 
