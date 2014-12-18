@@ -813,7 +813,7 @@ span.abnormal i{
     background-repeat: no-repeat;
 }
 
-#patient-height-image{
+.patient-height-projection{
     background-image: url('img/Body Outline.jpg') center top no-repeat;
 }
 
