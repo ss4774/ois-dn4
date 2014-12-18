@@ -818,11 +818,11 @@ span.abnormal i{
     background-size: 100%;
     background-repeat: no-repeat;
     height: 222px;
-    width: 100px;
+    width: 110px;
     
     position: absolute;
     top: 10px;
-    left: 60px;
+    /*left: 60px;*/
 }
 
 
