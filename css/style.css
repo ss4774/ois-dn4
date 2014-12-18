@@ -210,8 +210,8 @@ body{
 .patient-height-image{
     position: absolute;
     top: 10px;
-    left: 60px;
-
+    /*left: 60px;*/
+    left: 75px;
 }
 
 .patient-height-stats{
