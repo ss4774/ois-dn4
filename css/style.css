@@ -808,4 +808,7 @@ span.abnormal i{
     float: left;
 }
 
+.patient-pic{
+    background-repeat: no-repeat;
+}
 
