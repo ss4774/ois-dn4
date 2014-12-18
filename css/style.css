@@ -211,13 +211,15 @@ body{
     position: absolute;
     top: 10px;
     /*left: 60px;*/
-    left: 100px;
+    left: 75px;
+
 }
 
 .patient-height-stats{
     position: absolute;
     top: 98px;
-    left: 118px;
+    /*left: 118px;*/
+    left: 133;
 }
 
 /* Sidebar */
