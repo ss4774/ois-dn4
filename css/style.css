@@ -817,8 +817,12 @@ span.abnormal i{
     background-image: url("../img/Body Outline.png");
     background-size: 100%;
     background-repeat: no-repeat;
-    height: 250px;
+    height: 222px;
     width: 100px;
+    
+    position: absolute;
+    top: 10px;
+    left: 60px;
 }
 
 
