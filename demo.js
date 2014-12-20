@@ -578,6 +578,10 @@ $(document).ready(function() {
 		$("#preberiSporocilo").html("");
 		$("#preberiEHRid").val($(this).val());
 	});
+	$('#preberiObstojeciEHREHR').change(function() {
+		$("#preberiSporociloEHR").html("");
+		$("#preberiEHRidEHR").val($(this).val());
+	});
 	$('#preberiPredlogoBolnika').change(function() {
 		$("#kreirajSporocilo").html("");
 		var podatki = $(this).val().split(",");
