@@ -298,7 +298,7 @@ function master_deatilWeight() {
 		
 		var AQL = 
 			"select " +
-				"t/data[at0002]/events[at0003]/time/value as cas, " +
+				"t/data[at0002]/events[at0003]/time/value as time, " +
 				"t/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/magnitude weight, " +
 				"t/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/units as unit " +
 			"from EHR e[e/ehr_id/value='" + ehrId + "'] " +
@@ -314,7 +314,7 @@ function master_deatilWeight() {
 		    	if (res) {
 		    		var rows = res.resultSet;
 			        for (var i in rows) {
-			            results += "<tr><td>" + rows[i].cas + "</td><td class='text-right'>" + rows[i].weight + " " 	+ rows[i].unit + "</td>";
+			            results += "<tr><td>" + rows[i].time + "</td><td class='text-right'>" + rows[i].weight + " " 	+ rows[i].unit + "</td>";
 			        }
 			        results += "</table>";
 			        $("#detail").html(results);
