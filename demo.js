@@ -299,7 +299,7 @@ function master_deatilWeight() {
 		var AQL = 
 			"select " +
 				"t/data[at0002]/events[at0003]/time/value as cas, " +
-				"t/data[at0002]/events[at0003]/data[at0001]/items[at0004, 'Body weight']/value as temperatura_vrednost, " +
+				"t/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value as temperatura_vrednost, " +
 				"t/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/units as temperatura_enota " +
 			"from EHR e[e/ehr_id/value='" + ehrId + "'] " +
 			"contains OBSERVATION t[openEHR-EHR-OBSERVATION.body_weight.v1] " +
@@ -310,7 +310,7 @@ function master_deatilWeight() {
 		    type: 'GET',
 		    headers: {"Ehr-Session": sessionId},
 		    success: function (res) {
-		    	var results = "<table class='table table-striped table-hover'><tr><th>Datum in ura</th><th class='text-right'>Telesna temperatura</th></tr>";
+		    	var results = "<table class='table table-striped table-hover'><tr><th>Date</th><th class='text-right'>Weight</th></tr>";
 		    	if (res) {
 		    		var rows = res.resultSet;
 			        for (var i in rows) {
