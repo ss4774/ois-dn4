@@ -131,6 +131,15 @@ function preberiEHRodBolnikaEHR() {
 			        //$("#rezultatMeritveVitalnihZnakov").append(results);
 			        //$("#patient-temp").html("<span class='C3'>" + res[0].temperature + " " + res[0].unit + "</span>");
 			        $("#patient-temp").html("<button type=\"button\" class=\"C3\" onclick=\"master_deatilTemperature()\">" + res[0].temperature + " " + res[0].unit + "</button>");
+			        
+			        if(res[0].temperature < 37 && res[0].temperature > 34){
+			        	color = "green";
+			        }else if(res[0].temperature < 39 && res[0].temperature > 32){
+			        	color = "yellow";
+			        }else if(res[0].temperature < 41 && res[0].temperature > 30){
+			        	color = "red";
+			        }
+			        $("#progress-temp").html("<div class=\"progress-bar\" style=\"width: " + ( 50*res[0].temperature/36.5 ) + "%; height: 20px; background-color: " + color + ";\"></div>");
 		    	} else {
 		    		//$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Ni podatkov!</span>");
 		    		$("#patient-temp").html("<span class='obvestilo label label-success fade-in'>" + "Ni podatkov" + "</span>");
