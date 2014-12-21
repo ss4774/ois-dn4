@@ -853,5 +853,8 @@ span.abnormal i{
   display: none;
 }
 
-
+/* labels */
+#C1{
+    font: bold;
+}
 
