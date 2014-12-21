@@ -299,7 +299,7 @@ function master_deatilWeight() {
 		var AQL = 
 			"select " +
 				"t/data[at0002]/events[at0003]/time/value as cas, " +
-				"t/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value as temperatura_vrednost, " +
+				"t/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/value as temperatura_vrednost, " +
 				"t/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/units as temperatura_enota " +
 			"from EHR e[e/ehr_id/value='" + ehrId + "'] " +
 			"contains OBSERVATION t[openEHR-EHR-OBSERVATION.body_weight.v1] " +
