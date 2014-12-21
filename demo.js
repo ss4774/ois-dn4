@@ -545,7 +545,7 @@ function preberiMeritveVitalnihZnakov() {
     						"t/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value/units as temperatura_enota " +
 						"from EHR e[e/ehr_id/value='" + ehrId + "'] " +
 						"contains OBSERVATION t[openEHR-EHR-OBSERVATION.body_mass_index.v1] " +
-						"order by t/data[at0002]/events[at0003]/time/value desc " +
+						"order by t/data[at0001]/events[at0002]/time/value desc " +
 						"limit 10";
 					$.ajax({
 					    url: baseUrl + "/query?" + $.param({"aql": AQL}),
