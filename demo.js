@@ -660,6 +660,7 @@ function generirajBolnika() {
 						var diastolicniKrvniTlak = "69";
 						var nasicenostKrviSKisikom = "97.9";
 						var merilec = "Dr. Marjan Pip";
+						var pulz = "73";
 					
 						$.ajaxSetup({
 						    headers: {"Ehr-Session": sessionId}
@@ -675,7 +676,8 @@ function generirajBolnika() {
 						    "vital_signs/body_temperature/any_event/temperature|unit": "°C",
 						    "vital_signs/blood_pressure/any_event/systolic": sistolicniKrvniTlak,
 						    "vital_signs/blood_pressure/any_event/diastolic": diastolicniKrvniTlak,
-						    "vital_signs/indirect_oximetry:0/spo2|numerator": nasicenostKrviSKisikom
+						    "vital_signs/indirect_oximetry:0/spo2|numerator": nasicenostKrviSKisikom,
+						    "vital_signs/pulse/any_event/pulse": pulz
 						};
 						var parametriZahteve = {
 						    "ehrId": ehrId,
