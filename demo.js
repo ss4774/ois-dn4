@@ -580,10 +580,10 @@ $(document).ready(function() {
 	});
 	
 	//////////
-	$('#preberiObstojeciEHREHR').change(function() {
+	/*$('#preberiObstojeciEHREHR').change(function() {
 		$("#preberiSporociloEHR").html("");
 		$("#preberiEHRidEHR").val($(this).val());
-	});
+	});*/
 	/////////
 	
 	$('#preberiPredlogoBolnika').change(function() {
@@ -697,6 +697,7 @@ function generirajBolnika() {
 								console.log(JSON.parse(err.responseText).userMessage);
 						    }
 						});
+						$("#preberiEHRidEHR").val(ime);
 						
 	                    //////
 	                }
