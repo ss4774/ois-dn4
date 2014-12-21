@@ -854,14 +854,14 @@ span.abnormal i{
 }
 
 /* labels */
-#C1{
+.C1{
     font: bold;
 }
 
-#C2{
+.C2{
     font-size: 2em;
 }
-#C3{
+.C3{
     font-size: 1em;
 }
 
