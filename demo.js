@@ -614,8 +614,13 @@ $(document).ready(function() {
 });
 
 function generirajBolnika() {
+	var bolnik = $("#generirajEHR").val();
+	
 	sessionId = getSessionId();
 
+
+	if (bolnik == "Bolnik 1") {
+		
 	var ime = "Peter";
 	var priimek = "Novak";
 	var datumRojstva = "1970-06-08T02:20";
@@ -703,6 +708,7 @@ function generirajBolnika() {
 	        });
 	    }
 	});
+	}
 	
 	
 }
