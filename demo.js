@@ -276,7 +276,7 @@ function master_deatilWeight() {
 	if (!ehrId || ehrId.trim().length == 0) {
 		$("#preberiSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevan podatek!");
 	} else {
-		$.ajax({
+		/*$.ajax({
 			url: baseUrl + "/view/" + ehrId + "/" + "weight",
 			type: 'GET',
 			headers: {"Ehr-Session": sessionId},
@@ -294,6 +294,39 @@ function master_deatilWeight() {
 				$("#detail").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
 				console.log(JSON.parse(err.responseText).userMessage);
 			}
+		});*/
+		
+		var AQL = 
+			"select " +
+				"t/data[at0002]/events[at0003]/time/value as cas, " +
+				"t/data[at0002]/events[at0003]/data[at0001]/items[at0004, 'Body weight']/value as temperatura_vrednost, " +
+				"t/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value/units as temperatura_enota " +
+			"from EHR e[e/ehr_id/value='" + ehrId + "'] " +
+			"contains OBSERVATION t[openEHR-EHR-OBSERVATION.body_mass_index.v1] " +
+			"order by t/data[at0001]/events[at0002]/time/value desc " +
+			"limit 5";
+		$.ajax({
+		    url: baseUrl + "/query?" + $.param({"aql": AQL}),
+		    type: 'GET',
+		    headers: {"Ehr-Session": sessionId},
+		    success: function (res) {
+		    	var results = "<table class='table table-striped table-hover'><tr><th>Datum in ura</th><th class='text-right'>Telesna temperatura</th></tr>";
+		    	if (res) {
+		    		var rows = res.resultSet;
+			        for (var i in rows) {
+			            results += "<tr><td>" + rows[i].cas + "</td><td class='text-right'>" + rows[i].temperatura_vrednost + " " 	+ rows[i].temperatura_enota + "</td>";
+			        }
+			        results += "</table>";
+			        $("#rezultatMeritveVitalnihZnakov").append(results);
+		    	} else {
+		    		$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Ni podatkov!</span>");
+		    	}
+
+		    },
+		    error: function() {
+		    	$("#preberiMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
+				console.log(JSON.parse(err.responseText).userMessage);
+		    }
 		});
 	}	
 }
