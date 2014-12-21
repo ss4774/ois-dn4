@@ -677,7 +677,8 @@ function generirajBolnika() {
 						    "vital_signs/blood_pressure/any_event/systolic": sistolicniKrvniTlak,
 						    "vital_signs/blood_pressure/any_event/diastolic": diastolicniKrvniTlak,
 						    "vital_signs/indirect_oximetry:0/spo2|numerator": nasicenostKrviSKisikom,
-						    "vital_signs/pulse/any_event/pulse": pulz
+						    "vital_signs/pulse:0/any_event:0/rate|magnitude": pulz
+						    //vital_signs/pulse:0/any_event:0/rate|magnitude":83.0,
 						};
 						var parametriZahteve = {
 						    "ehrId": ehrId,
