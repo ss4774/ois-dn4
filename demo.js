@@ -271,7 +271,7 @@ function preberiEHRodBolnikaEHR() {
 function master_deatilWeight() {
 	sessionId = getSessionId();
 
-	var ehrId = $("#preberiEHRid").val();
+	var ehrId = $("#preberiEHRidEHR").val();
 
 	if (!ehrId || ehrId.trim().length == 0) {
 		$("#preberiSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevan podatek!");
@@ -333,7 +333,7 @@ function master_deatilWeight() {
 function master_deatilHeight() {
 	sessionId = getSessionId();
 
-	var ehrId = $("#preberiEHRid").val();
+	var ehrId = $("#preberiEHRidEHR").val();
 
 	if (!ehrId || ehrId.trim().length == 0) {
 		$("#preberiSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevan podatek!");
@@ -362,7 +362,7 @@ function master_deatilHeight() {
 function master_deatilBP() {
 	sessionId = getSessionId();
 
-	var ehrId = $("#preberiEHRid").val();
+	var ehrId = $("#preberiEHRidEHR").val();
 
 	if (!ehrId || ehrId.trim().length == 0) {
 		$("#preberiSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevan podatek!");
@@ -390,7 +390,7 @@ function master_deatilBP() {
 function master_deatilPulse() {
 	sessionId = getSessionId();
 
-	var ehrId = $("#preberiEHRid").val();
+	var ehrId = $("#preberiEHRidEHR").val();
 
 	if (!ehrId || ehrId.trim().length == 0) {
 		$("#preberiSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevan podatek!");
@@ -418,7 +418,7 @@ function master_deatilPulse() {
 function master_deatilTemperature() {
 	sessionId = getSessionId();
 
-	var ehrId = $("#preberiEHRid").val();
+	var ehrId = $("#preberiEHRidEHR").val();
 
 	if (!ehrId || ehrId.trim().length == 0) {
 		$("#preberiSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevan podatek!");
