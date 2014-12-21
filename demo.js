@@ -300,9 +300,9 @@ function master_deatilWeight() {
 			"select " +
 				"t/data[at0002]/events[at0003]/time/value as cas, " +
 				"t/data[at0002]/events[at0003]/data[at0001]/items[at0004, 'Body weight']/value as temperatura_vrednost, " +
-				"t/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value/units as temperatura_enota " +
+				"t/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/units as temperatura_enota " +
 			"from EHR e[e/ehr_id/value='" + ehrId + "'] " +
-			"contains OBSERVATION t[openEHR-EHR-OBSERVATION.body_mass_index.v1] " +
+			"contains OBSERVATION t[openEHR-EHR-OBSERVATION.body_weight.v1] " +
 			"order by t/data[at0001]/events[at0002]/time/value desc " +
 			"limit 5";
 		$.ajax({
