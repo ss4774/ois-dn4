@@ -391,7 +391,7 @@ function master_deatilTemperature() {
 		$("#preberiSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevan podatek!");
 	} else {
 		$.ajax({
-			url: baseUrl + "/view/" + ehrId + "/" + "temperature",
+			url: baseUrl + "/view/" + ehrId + "/" + "body_temperature",
 			type: 'GET',
 			headers: {"Ehr-Session": sessionId},
 	    	success: function (res) {
